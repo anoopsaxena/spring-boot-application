@@ -9,16 +9,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: CopyFiles@2
-  displayName: Copy Files
-  inputs:
-    SourceFolder: $(system.defaultworkingdirectory)/target/azure-functions/
-    Contents: '**'
-    TargetFolder: $(build.artifactstagingdirectory) 
+steps: 
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: '/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
